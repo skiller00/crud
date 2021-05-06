@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>crud</title>
+</head>
+<body>
+    <div class="table-data">
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <%
+        if(userData.length!=0){
+        var i=1;
+        userData.forEach(function(data){
+        %>
+        <tr>
+            <td><%=data.id %></td>
+            <td><%=data.name %></td>
+            <td><%=data.email %></td>
+            <td><%=data.gender %></td>
+            <td><%=data.status %></td>
+            <td><span id="updateBtn">Y</span> <span id= "deleteBtn">X</span></td>
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+    </div>
+    <form action="/addUsers" method="GET">
+        <button type="submit">Add new user</button>
+    </form>
+</body>
+</html>
